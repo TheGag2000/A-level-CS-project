@@ -10,3 +10,4 @@ if __name__ == '__main__':
     root = tk.Tk() #creates the root object for tkinter
     app = Window(root)#instatitates a test window
     root.mainloop()
+ 
