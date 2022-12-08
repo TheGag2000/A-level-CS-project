@@ -1,6 +1,6 @@
 import tkinter as tk #imports the tkinter library to bo be used to create GUI
 from Login import LoginWindow # imports the login window
-from RevisionWindow import TestWindow
+from Revision import TestWindow
 
 
 #RevisionApp class is used to configure application to allow for OOP windows
