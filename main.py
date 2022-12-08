@@ -1,6 +1,6 @@
 import tkinter as tk #imports the tkinter library to bo be used to create GUI
 from Login import LoginWindow # imports the login window
-from Revision import TestWindow
+from Revision import RevisionWindow
 
 
 #RevisionApp class is used to configure application to allow for OOP windows
@@ -14,7 +14,7 @@ class RevisionApp(tk.Tk): #RevisionApp class inherits from tk.Tk
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
 
-        for F in (LoginWindow, TestWindow): # loops through each window to select which one to be displayed
+        for F in (LoginWindow, RevisionWindow): # loops through each window to select which one to be displayed
 
             frame = F(container, self)
             self.frames[F] = frame

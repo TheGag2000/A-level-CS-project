@@ -6,5 +6,5 @@ class LoginWindow(tk.Frame):
         tk.Frame.__init__(self,parent)
         test = tk.Label(self, text = "Login Screen")
         test.pack()
-        Login_Button = tk.Button(self, text = "Login", command = lambda: controller.show_frame(Revision.TestWindow))
+        Login_Button = tk.Button(self, text = "Login", command = lambda: controller.show_frame(Revision.RevisionWindow))
         Login_Button.pack()
