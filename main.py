@@ -14,7 +14,7 @@ class RevisionApp(tk.Tk): #RevisionApp class inherits from tk.Tk
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
 
-        for F in (LoginWindow, TestWindow):
+        for F in (LoginWindow, TestWindow): # loops through each window to select which one to be displayed
 
             frame = F(container, self)
             self.frames[F] = frame
