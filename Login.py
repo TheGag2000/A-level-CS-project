@@ -36,7 +36,3 @@ class LoginWindow(tk.Frame):
         PasswordEntry.grid(row = 2, column = 1)
         LoginButton.grid(row = 3, column=1)
         NewUserButton.grid(row = 4, column=1)
-
-conn.commit()
-
-conn.close()
