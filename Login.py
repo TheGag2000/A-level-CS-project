@@ -1,10 +1,6 @@
 import tkinter as tk
-
 import NewUser
 import Revision
-import database_manager
-
-
 
 
 class LoginWindow(tk.Frame):

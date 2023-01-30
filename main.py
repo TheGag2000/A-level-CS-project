@@ -4,6 +4,8 @@ from Revision import RevisionWindow
 from NewUser import NewUserWindow
 import sqlite3
 
+
+
 #RevisionApp class is used to configure application to allow for OOP windows
 class RevisionApp(tk.Tk): #RevisionApp class inherits from tk.Tk
     def __init__(self, *args, **kwargs):
