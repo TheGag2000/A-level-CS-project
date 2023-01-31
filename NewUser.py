@@ -1,7 +1,7 @@
 import tkinter as tk
 import Login
 import sqlite3
-
+from tkinter import messagebox
 
 class NewUserWindow(tk.Frame):
     def __init__(self, parent, controller):
@@ -45,3 +45,4 @@ class NewUserWindow(tk.Frame):
 
         self.UserNameEntry.delete(0, tk.END)  # Clears the text boxes after submitting
         self.PasswordEntry.delete(0, tk.END)
+        tk.messagebox.showinfo("New User created", "Your account has been created")# shows message box for user being created
