@@ -30,7 +30,6 @@ class NewUserWindow(tk.Frame):
         NewUserButton.grid(row=3, column=0, columnspan=2)
 
     def add_user(self):
-        print("test")
         conn = sqlite3.connect('Users.db')
 
         c = conn.cursor()
