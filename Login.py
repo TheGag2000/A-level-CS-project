@@ -19,7 +19,7 @@ class LoginWindow(tk.Frame):
         PasswordLabel = tk.Label(self, text = "Password")
 
         #Buttons
-        LoginButton = tk.Button(self, text = "Login", command = lambda: controller.show_frame(Revision.RevisionWindow))
+        LoginButton = tk.Button(self, text = "Login", command = lambda: self.login())
         NewUserButton = tk.Button(self, text = "Sign Up", command = lambda :controller.show_frame(NewUser.NewUserWindow))
 
 
@@ -36,7 +36,9 @@ class LoginWindow(tk.Frame):
     def login(self):
         conn = sqlite3.connect('Users.db')
         c = conn.cursor()
-
+        c.execute("SELECT *, oid FROM Users")
+        records = c.fetchall()
+        print(records)
 
         conn.commit()
         conn.close()
