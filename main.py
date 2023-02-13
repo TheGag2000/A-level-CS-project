@@ -2,7 +2,7 @@ import tkinter as tk #imports the tkinter library to bo be used to create GUI
 from Login import LoginWindow # imports the login window
 from Revision import RevisionWindow
 from NewUser import NewUserWindow
-import sqlite3
+
 
 
 

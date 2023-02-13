@@ -6,5 +6,5 @@ class RevisionWindow(tk.Frame):
         tk.Frame.__init__(self,parent)
         test = tk.Label(self, text = "test Window")
         test.pack()
-        Test_Button = tk.Button(self, text = "Return to Login Screen", command = lambda: controller.show_frame(Login.LoginWindow))#Button to swithch between windows
+        Test_Button = tk.Button(self, text = "Return to Login Screen", command = lambda: controller.show_frame(Login.LoginWindow))#Button to switch between windows
         Test_Button.pack()
