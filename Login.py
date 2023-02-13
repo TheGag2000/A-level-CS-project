@@ -2,6 +2,7 @@ import tkinter as tk
 import NewUser
 import Revision
 import sqlite3
+from tkinter import messagebox
 
 class LoginWindow(tk.Frame):
     def __init__(self, parent, controller):
@@ -12,9 +13,10 @@ class LoginWindow(tk.Frame):
         #Labels
 
         LoginLabel = tk.Label(self, text = "Login", font = (12))
-
-        self.UserNameEntry = tk.Entry(self, width = 30)
-        self.PasswordEntry = tk.Entry(self, width = 30)
+        self.username = tk.StringVar()
+        self.password = tk.StringVar()
+        self.UserNameEntry = tk.Entry(self, width = 30, textvariable=self.username)
+        self.PasswordEntry = tk.Entry(self, width = 30,textvariable=self.password)
         UserNameLabel = tk.Label(self, text = "Username")
         PasswordLabel = tk.Label(self, text = "Password")
 
@@ -36,9 +38,16 @@ class LoginWindow(tk.Frame):
     def login(self):
         conn = sqlite3.connect('Users.db')
         c = conn.cursor()
-        c.execute("SELECT *, oid FROM Users")
-        records = c.fetchall()
-        print(records)
+        find_user  = "SELECT * FROM Users WHERE username = ? and password = ?"
+        c.execute(find_user, [(self.UserNameEntry.get()),( self.PasswordEntry.get())])
+
+        result = c.fetchall()
+        if result:
+            tk.messagebox.showinfo("Success", "Logged in Successfully")
+
+        else:
+            tk.messagebox.showerror("Failed", "Invalid Credentials")
+
 
         conn.commit()
         conn.close()
