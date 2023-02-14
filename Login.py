@@ -2,7 +2,7 @@ import sqlite3
 import tkinter as tk
 from tkinter import messagebox
 import NewUser
-
+import Revision
 
 
 class LoginWindow(tk.Frame):
@@ -21,7 +21,7 @@ class LoginWindow(tk.Frame):
         PasswordLabel = tk.Label(self, text="Password")
 
         # Buttons
-        LoginButton = tk.Button(self, text="Login", command=lambda: (self.login()))
+        LoginButton = tk.Button(self, text="Login", command=lambda: [(self.login()),(controller.show_frame(Revision.RevisionWindow))])
         NewUserButton = tk.Button(self, text="Sign Up", command=lambda: controller.show_frame(NewUser.NewUserWindow))
 
         # Putting widgets on the screen
