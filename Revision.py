@@ -59,7 +59,7 @@ class RevisionWindow(tk.Frame):
 
         if random_difficulty[0] == 1:
             random_question = random.randint(0,len(easy)-1)#chooses random question from easy questions
-            self.QuestionLabel.config(text=easy[random_question][0])
+            self.QuestionLabel.config(text=easy[random_question][0]) # updates the tkinter question label
         elif random_difficulty[0] ==2:
             random_question = random.randint(0,len(medium)-1) #chooses random question from medium questions
             self.QuestionLabel.config(text=medium[random_question][0])
@@ -67,12 +67,12 @@ class RevisionWindow(tk.Frame):
             random_question = random.randint(0,len(hard)-1)#chooses random question from hard questions
             self.QuestionLabel.config(text=hard[random_question][0])
 
-        print(random_question)
 
     def show_answer(self):
-        if random_difficulty[0] == 1:
-            self.AnswerLabel.config(text=easy[random_question][1])
-        elif random_difficulty[0] ==2:
+        # displays the correct corresponding answer to the questions when answer button is pressed
+        if random_difficulty[0] == 1: # easy
+            self.AnswerLabel.config(text=easy[random_question][1]) # updates answer label
+        elif random_difficulty[0] ==2: # medium
             self.AnswerLabel.config(text=medium[random_question][1])
-        elif random_difficulty[0] == 3:
+        elif random_difficulty[0] == 3: # hard
             self.AnswerLabel.config(text=hard[random_question][1])
