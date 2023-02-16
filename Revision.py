@@ -31,6 +31,9 @@ class RevisionWindow(tk.Frame):
     def next(self):
         global random_question  # Allows the question to be accessed from the global scope required for multiple functions
         global random_difficulty
+        global easy
+        global medium
+        global hard
         self.AnswerLabel.config(text="") # clears previous answer from screen
         population =[1,2,3]
         weights = [0.14,0.29,0.57]
@@ -41,23 +44,35 @@ class RevisionWindow(tk.Frame):
         for i in range(0,(len(self.questions))): # generate list of questions to be selected from
             if random_difficulty[0] == 1: #select easy question
                 if random_difficulty[0] == self.questions[i][2]:
-                    easy.append(self.questions[i])
-            elif random_difficulty[0] == 2:#select medium question
+                    easy.append(self.questions[i]) # create list of easy questions
+            elif random_difficulty[0] == 2:#select medium questions
                 if random_difficulty[0] == self.questions[i][2]:
-                    medium.append(self.questions[i])
+                    medium.append(self.questions[i]) #create list of medium questions
             elif random_difficulty[0] ==3:
                 if random_difficulty[0] == self.questions[i][2]:
-                    hard.append(self.questions[i]) #select hard question
+                    hard.append(self.questions[i]) #create list of hard questions
 
         print(random_difficulty)
         print("easy",easy)
         print("medium",medium)
         print("hard",hard)
 
+        if random_difficulty[0] == 1:
+            random_question = random.randint(0,len(easy)-1)#chooses random question from easy questions
+            self.QuestionLabel.config(text=easy[random_question][0])
+        elif random_difficulty[0] ==2:
+            random_question = random.randint(0,len(medium)-1) #chooses random question from medium questions
+            self.QuestionLabel.config(text=medium[random_question][0])
+        elif random_difficulty[0] == 3:
+            random_question = random.randint(0,len(hard)-1)#chooses random question from hard questions
+            self.QuestionLabel.config(text=hard[random_question][0])
 
-
-        #random_question = randint(0, len((self.questions)) - 1)  # Selects random question
-        #self.QuestionLabel.config(text=self.questions[random_question][0])  # Updates question label with new question
+        print(random_question)
 
     def show_answer(self):
-        self.AnswerLabel.config(text=self.questions[random_question][1])  # updates answer label with new answer
+        if random_difficulty[0] == 1:
+            self.AnswerLabel.config(text=easy[random_question][1])
+        elif random_difficulty[0] ==2:
+            self.AnswerLabel.config(text=medium[random_question][1])
+        elif random_difficulty[0] == 3:
+            self.AnswerLabel.config(text=hard[random_question][1])
