@@ -10,13 +10,24 @@ class RevisionWindow(tk.Frame):
         self.QuestionLabel.pack(pady=50)
         self.AnswerLabel = tk.Label(self, text="")
         self.AnswerLabel.pack(pady=50)
+
         # buttons
         button_frame = tk.Frame(self)
         button_frame.pack()
+        difficulty_button_frame = tk.Frame(self)
+        difficulty_button_frame.pack()
+        self.DifficultyLabel = tk.Label(difficulty_button_frame, text  ="How did you find this question?")
+        self.DifficultyLabel.grid(row =0, column=0, columnspan=3)
         answer_button = tk.Button(button_frame, text="Show Answer", command=lambda: self.show_answer())
         answer_button.grid(row=0, column=0, padx=20)
         next_button = tk.Button(button_frame, text="Next", command=lambda: self.next())
         next_button.grid(row=0, column=1)
+        easy_button = tk.Button(difficulty_button_frame, text = "Easy")
+        easy_button.grid(row = 1, column = 0)
+        medium_button = tk.Button(difficulty_button_frame, text = "Medium")
+        medium_button.grid(row = 1, column =1)
+        hard_button = tk.Button(difficulty_button_frame, text = "Hard")
+        hard_button.grid(row = 1, column = 2)
 
         self.questions = [
             (("PC"), ("Program counter, contains the address of the next instruction"),(1)),
