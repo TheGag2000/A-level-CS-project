@@ -23,11 +23,11 @@ class RevisionWindow(tk.Frame):
         answer_button.grid(row=0, column=0, padx=20)
         next_button = tk.Button(button_frame, text="Next", command=lambda: self.next())
         next_button.grid(row=0, column=1)
-        easy_button = tk.Button(self.difficulty_button_frame, text = "Easy")
+        easy_button = tk.Button(self.difficulty_button_frame, text = "Easy", command = lambda: self.update_frequency(1))
         easy_button.grid(row = 1, column = 0)
-        medium_button = tk.Button(self.difficulty_button_frame, text = "Medium")
+        medium_button = tk.Button(self.difficulty_button_frame, text = "Medium", command = lambda: self.update_frequency(2))
         medium_button.grid(row = 1, column =1)
-        hard_button = tk.Button(self.difficulty_button_frame, text = "Hard")
+        hard_button = tk.Button(self.difficulty_button_frame, text = "Hard", command = lambda: self.update_frequency(3))
         hard_button.grid(row = 1, column = 2)
 
         # self.questions = [
@@ -120,3 +120,11 @@ class RevisionWindow(tk.Frame):
         #     self.AnswerLabel.config(text=medium[random_question][1])
         # elif random_difficulty[0] == 3: # hard
         #     self.AnswerLabel.config(text=hard[random_question][1])
+
+    def update_frequency(self, updated_difficulty):
+        conn = sqlite3.connect('Users.db')
+        c = conn.cursor()
+        c.execute("UPDATE flashcards SET difficulty = ? WHERE rowid = ?", (updated_difficulty,questions[random_question][3])) # updates the difficulty of the question by using its rowid
+
+        conn.commit()
+        conn.close()
