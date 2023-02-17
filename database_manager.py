@@ -6,11 +6,14 @@ def create_table():
 
     c = conn.cursor()
 
-    c.execute("""CREATE TABLE Users
+    c.execute("""CREATE TABLE flashcards
      (
-     username text,
-     password text
+     question text,
+     answer text,
+     difficulty integer
      )
      """)
     conn.commit()
     conn.close()
+
+

@@ -4,8 +4,6 @@ from Revision import RevisionWindow
 from NewUser import NewUserWindow
 
 
-
-
 #RevisionApp class is used to configure application to allow for OOP windows
 class RevisionApp(tk.Tk): #RevisionApp class inherits from tk.Tk
     def __init__(self, *args, **kwargs):
@@ -28,7 +26,6 @@ class RevisionApp(tk.Tk): #RevisionApp class inherits from tk.Tk
     def show_frame(self, cont): #shows the selected window in the frame
         frame = self.frames[cont]
         frame.tkraise()
-
 
 if __name__ == "__main__":
     app = RevisionApp()
